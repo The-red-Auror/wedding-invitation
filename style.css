@@ -1,0 +1,400 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.page-34 {
+    width: 100%;
+    max-width: 400px;          /* controls card width */
+    aspect-ratio: 9 / 16;      /* 🔑 THE MAGIC */
+    
+    background: black;
+    position: relative;
+    overflow: hidden;
+
+    margin: 40px auto;        /* space between pages */
+    border-radius: 18px;      /* soft card look */
+}
+
+/* 4:3 PAGE WRAPPER */
+.page-43 {
+    width: 100%;
+    max-width: 400px;          /* controls card width */
+    aspect-ratio: 4 / 3;      /* 🔑 THE MAGIC */
+    
+    background: black;
+    position: relative;
+    overflow: hidden;
+
+    margin: 40px auto;        /* space between pages */
+    border-radius: 18px;      /* soft card look */
+}
+
+
+/* Portrait-first setup */
+body {
+    font-family: 'Georgia', serif;
+    background: #111;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+/* COMMON SCREEN SIZE */
+#intro-image,
+#main-content {
+    display: none;
+    background: black;
+    padding: 0;
+    text-align: center;
+}
+
+
+/* INTRO IMAGE */
+#intro-image {
+    position: fixed;
+    top: 0;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    overflow: hidden;
+}
+
+#intro-image img {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+
+    width: 110%;
+    height: 110%;
+    object-fit: cover;
+
+    transform: translate(-50%, -50%) scale(0.9);
+}
+
+.tap-text {
+    position: absolute;
+    bottom: 50px;
+    color: white;
+    font-size: 16px;
+    letter-spacing: 1px;
+    animation: blink 1.5s infinite;
+}
+
+/* MAIN CONTENT */
+#main-content {
+    display: none;
+    background: #fff;
+    padding: 20px;
+    overflow-y: auto;
+    text-align: center;
+}
+
+/* FADE EFFECT */
+.fade-out {
+    animation: fadeOut 1.5s forwards;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+/* HERO SECTION */
+#hero {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* SLIDESHOW */
+.slideshow {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center center;
+
+    transform: translate(-50%, -50%);
+
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+/* DARK OVERLAY */
+#hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+}
+
+/* HERO TEXT */
+.hero-text {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    padding: 20px;              /* 🔑 breathing space */
+    overflow: visible; 
+    animation: heroReveal 2s ease forwards;
+}
+
+/* GOLD CALLIGRAPHY NAMES */
+.couple-names {
+    font-family: 'Great Vibes', cursive;
+    text-align: center;
+    line-height: 1.25;
+    padding: 8px 12px;
+    background: linear-gradient(
+        45deg,
+        #b8892d,
+        #f6e27a,
+        #d4af37,
+        #fff1a8,
+        #b8892d
+    );
+    background-size: 300% auto;
+
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    animation: goldShine 4s linear infinite;
+}
+
+.person {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.parents {
+    display: block;
+    margin-top: 4px;
+
+    font-family: 'Georgia', serif;
+    font-size: 14px;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+
+    color: rgba(255, 255, 255, 0.85);
+    white-space: nowrap;
+}
+
+/* Mobile adjustment */
+@media (max-width: 480px) {
+    .parents {
+        font-size: 15px;
+    }
+}
+
+
+
+.couple-names .name {
+    display: block;
+    font-size: 56px;
+}
+
+.couple-names .and-line {
+    display: block;
+    font-size: 32px;
+    margin: 4px 0;
+}
+
+.tagline {
+    margin-top: 12px;
+    font-size: 16px;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+/* ANIMATIONS */
+@keyframes goldShine {
+    from { background-position: 0% center; }
+    to { background-position: 300% center; }
+}
+
+@keyframes heroReveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 480px) {
+    body {
+        display: block;
+        background: black;
+    }
+
+    body::before {
+        display: none;
+    }
+
+    #intro-image,
+    #main-content {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .couple-names .name {
+        font-size: 64px;
+    }
+
+    .couple-names .and-line {
+        font-size: 36px;
+    }
+}
+
+/*invite pages */
+/* EVENT PAGES */
+.event-page {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Individual backgrounds */
+.engagement {
+    background-image: url("assets/engagement.jpeg");
+}
+
+.haldi {
+    background-image: url("assets/haldi.jpeg");
+}
+
+.vidhi {
+    background-image: url("assets/vidhi.jpeg");
+}
+
+.wedding {
+    background-image: url("assets/wedding.jpeg");
+}
+
+/* Dark overlay for readability */
+.event-overlay {
+    background: rgba(0, 0, 0, 0.45);
+    padding: 24px 32px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 95%;          /* 🔑 LIMIT WIDTH */
+    box-sizing: border-box;
+}
+
+/* Event title */
+.event-overlay h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 48px;
+    margin-bottom: 12px;
+
+    background: linear-gradient(
+        45deg,
+        #b8892d,
+        #f6e27a,
+        #d4af37,
+        #fff1a8
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    
+}
+
+/* Date & time */
+.event-time {
+    font-family: 'Georgia', serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #ffffff;
+}
+
+/* Mobile tweak */
+@media (max-width: 480px) {
+    .event-overlay h2 {
+        font-size: 52px;
+    }
+
+    .event-time {
+        font-size: 15px;
+    }
+}
+
+/* VENUE PAGE */
+/* VENUE PAGE – CARD STYLE */
+.venue {
+    background-image: url("assets/venue.png");
+}
+
+.venue-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+
+.event-page {
+    width: 100%;
+    height: 100%;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+
+@media (max-width: 360px) {
+    .venue .event-overlay h2 {
+        font-size: 40px;
+    }
+}
+
