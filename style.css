@@ -240,6 +240,22 @@ body {
     letter-spacing: 1px;
 }
 
+.invite-text {
+    margin-top: 6px;
+
+    font-family: 'Georgia', serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+
+    color: rgba(255, 255, 255, 0.85);
+}
+@media (max-width: 480px) {
+    .invite-text {
+        font-size: 14px;
+    }
+}
+
+
 /* ANIMATIONS */
 @keyframes goldShine {
     from { background-position: 0% center; }
