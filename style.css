@@ -242,9 +242,9 @@ body {
 
 .invite-text {
     margin-top: 6px;
-
+    margin-bottom: 10px;
     font-family: 'Georgia', serif;
-    font-size: 50px;
+    font-size: 100px;
     letter-spacing: 5px;
 
     color: #fff;
