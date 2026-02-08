@@ -242,10 +242,10 @@ body {
 
 .invite-text {
     margin-top: 6px;
-    margin-bottom: 30px;
+
     font-family: 'Georgia', serif;
-    font-size: 40px;
-    letter-spacing: 2px;
+    font-size: 15px;
+    letter-spacing: 1px;
 
     color: #fff;
 }
