@@ -247,7 +247,7 @@ body {
     font-size: 15px;
     letter-spacing: 1px;
 
-    color: rgba(255, 255, 255, 0.85);
+    color: rgb(255, 255, 255);
 }
 @media (max-width: 480px) {
     .invite-text {
